@@ -48,7 +48,7 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
 
   func makeImagesController() -> ImagesController {
     let controller = ImagesController(cart: cart)
-    controller.title = "Gallery.Images.Title".g_localize(fallback: "PHOTOS")
+    controller.title = "Gallery.Images.Title".g_localize(fallback: "LIVE PHOTOS")
 
     return controller
   }
