@@ -34,7 +34,12 @@ struct Utils {
 
   static func fetchOptions() -> PHFetchOptions {
     let options = PHFetchOptions()
-    options.predicate = NSPredicate(format: "mediaSubtype == %ld", PHAssetMediaSubtype.photoLive.rawValue)
+
+    let predicate1 = NSPredicate(format: "mediaSubtype == %ld", PHAssetMediaSubtype.photoLive.rawValue)
+    let predicate2 = NSPredicate(format: "mediaType == %ld", PHAssetMediaType.video.rawValue)
+    let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1,predicate2] )
+
+    options.predicate = predicate
     options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
 
     return options
